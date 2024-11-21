@@ -350,6 +350,8 @@ if (antilinkall === 'TRUE' && body.includes('https://') && !Owner && isBotAdmin 
         chalk.green(groupName)
       );
     }
+	  const lib = {};
+	  
 	  const loadCommands = async (category) => {
   const commandFiles = fs.readdirSync(`./lib/${category}`).filter((file) => file.endsWith(".js"));
 
