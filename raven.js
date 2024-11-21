@@ -354,7 +354,7 @@ if (antilinkall === 'TRUE' && body.includes('https://') && !Owner && isBotAdmin 
   const commandFiles = fs.readdirSync(`./lib/${category}`).filter((file) => file.endsWith(".js"));
 
   for (const file of commandFiles) {
-    const { default: command } = await import(`./lib/${category}/${file}`);
+    const { default: command } = require(`./lib/${category}/${file}`);
     lib[file.slice(0, -3)] = command;
   }
 };
