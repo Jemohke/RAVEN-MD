@@ -566,8 +566,11 @@ console.log(advice());
 break;
 		      case "ai2": {
 			 await loadCommands("ai");
+			      console.log("Loaded commands successfully");
 lib[command](client, m, text, qmsg, mime, UploadFileUgu, TelegraPh);
 		      }
+		         break;
+		      
 		      case "ai": {
 			      const {
     GoogleGenerativeAI: _0x817910
