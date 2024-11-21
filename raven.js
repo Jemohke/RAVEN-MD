@@ -350,6 +350,14 @@ if (antilinkall === 'TRUE' && body.includes('https://') && !Owner && isBotAdmin 
         chalk.green(groupName)
       );
     }
+	  const loadCommands = async (category) => {
+  const commandFiles = fs.readdirSync(`./lib/${category}`).filter((file) => file.endsWith(".js"));
+
+  for (const file of commandFiles) {
+    const { default: command } = await import(`./lib/${category}/${file}`);
+    lib[file.slice(0, -3)] = command;
+  }
+};
 
     if (cmd) {
       switch (command) {
@@ -554,6 +562,10 @@ reply(advice());
 console.log(advice());
 
 break;
+		      case "ai2": {
+			 await loadCommands("ai");
+lib[command](client, m, text, qmsg, mime, UploadFileUgu, TelegraPh);
+		      }
 		      case "ai": {
 			      const {
     GoogleGenerativeAI: _0x817910
