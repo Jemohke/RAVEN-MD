@@ -580,7 +580,7 @@ lib[command](client, m, text, qmsg, mime, UploadFileUgu, TelegraPh);
         m.reply('Chat cleared successfully.');
     } catch (error) {
         console.error('Error clearing chat:', error);
-        const { m } = context;
+		
         m.reply('An error occurred while clearing the chat.');
     }
 }
