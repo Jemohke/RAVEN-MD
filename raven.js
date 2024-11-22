@@ -566,10 +566,25 @@ console.log(advice());
 break;
 		      case "ai2": {
 			 await loadCommands("ai");
+			      console.log(lib);
+			      console.log(command);
 			      console.log("Loaded commands successfully");
 lib[command](client, m, text, qmsg, mime, UploadFileUgu, TelegraPh);
 		      }
 		         break;
+	      case "clear": {
+	try {
+		      if(!Owner) throw NotOwner;
+		      await client.clearChat(client.jid);
+
+        m.reply('Chat cleared successfully.');
+    } catch (error) {
+        console.error('Error clearing chat:', error);
+        const { m } = context;
+        m.reply('An error occurred while clearing the chat.');
+    }
+}
+		break;
 		      
 		      case "ai": {
 			      const {
